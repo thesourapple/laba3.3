@@ -1,0 +1,216 @@
+body {
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 14px 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #444444;
+}
+
+/* ================= Панель навигации ================= */
+header {
+  width: 80%;
+  max-width: 1200px;              /* самост.: не шире 1200px */
+  margin: auto;
+  background-color: #ffffff;
+  border: 1px solid #e0e4ec;      /* Тонкая серая рамка */
+  border-radius: 12px;            /* Скругленные углы */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.03); /* Легкая тень */
+}
+
+/* Контейнер для выравнивания элементов */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* самост.: заголовок слева, ссылки справа */
+  padding: 14px 24px;
+}
+
+/* Заголовок */
+.navbar-title {
+  font-weight: bold;
+  color: #4a6b82;
+  letter-spacing: 0.05em;
+}
+
+/* Навигация */
+nav {
+  display: flex;
+  gap: 14px;                      /* самост.: интервал 14px между ссылками */
+}
+
+/* Базовый стиль для всех навигационных ссылок */
+.nav-btn {
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 6px;             /* Скругление кнопок */
+  color: #0288d1;                 /* Цвет для ссылок */
+}
+
+/* Стиль для активного пункта меню */
+.nav-btn.active {
+  background-color: #0288d1;      /* Яркий синий фон */
+  color: #ffffff;                 /* Белый текст */
+  box-shadow: 0px 2px 4px rgba(2, 136, 209, 0.2); /* Свечение под кнопкой */
+}
+
+/* Эффект наведения на неактивную ссылку */
+.nav-btn:not(.active):hover {
+  background-color: rgba(2, 136, 209, 0.06);
+}
+
+/* ================= Галерея ================= */
+.gallery {
+  display: grid;
+  width: 80%;
+  max-width: 1200px;              /* самост.: не шире 1200px */
+  margin: 14px auto;              /* самост.: по центру, 14px от навигации */
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 200px;          /* высота одной строки */
+  gap: 10px;                      /* самост.: 10px между картинками */
+}
+
+/* Элемент галереи */
+.gallery-item {
+  overflow: hidden;
+  border-radius: 8px;             /* Скругление углов */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05); /* Легкая тень */
+}
+
+/* самост.: высокие картинки занимают две строки */
+.gallery-item.tall {
+  grid-row: span 2;
+}
+
+/* Стилизация картинок внутри блоков */
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;              /* Картинка заполняет блок без искажения пропорций */
+}
+
+/* ================= Основной контент ================= */
+/* Общая сетка для карточек */
+.cards-grid {
+  display: grid;
+  width: 80%;
+  max-width: 1200px;              /* ограничение в 1200 пикселей для широких экранов */
+  margin: 0 auto;                 /* выравнивание блока по центру */
+  grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+  gap: 14px;                      /* Расстояние между карточками 14 пикселей */
+}
+
+/* Карточка */
+.card {
+  display: flex;                  /* ВКЛЮЧАЕМ FLEX ДЛЯ ВНУТРЕННОСТЕЙ КАРТОЧКИ */
+  gap: 14px;
+  padding: 14px;
+  background-color: #ffffff;
+  border: 1px solid #e0e4ec;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.04);
+}
+
+/* Текстовая часть карточки */
+.card-body {
+  flex: 1;                        /* занимает всё место, кроме рисунка */
+  display: flex;
+  flex-direction: column;         /* заголовок, абзацы и кнопка друг под другом */
+  padding: 6px;
+}
+
+.card-title {
+  margin: 4px 0 18px;
+  font-size: 1.05em;
+  color: #4a6b82;
+}
+
+.card-body p {
+  margin: 0 0 12px;
+  font-size: 0.85em;
+  line-height: 1.6;
+}
+
+/* Рисунок занимает 25% карточки */
+.card-img {
+  width: 25%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Кнопка ПОДРОБНЕЕ: прижата к низу карточки и к рисунку */
+.card-btn {
+  margin-top: auto;               /* прижимаем к нижней границе */
+  align-self: flex-end;           /* рисунок справа → кнопка справа */
+  padding: 6px 4px;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #0288d1;
+  text-decoration: none;
+}
+
+.card-btn:hover {
+  text-decoration: underline;
+}
+
+/* Чётные карточки: рисунок слева, кнопка тоже слева */
+.card:nth-child(even) .card-img {
+  order: -1;
+}
+
+.card:nth-child(even) .card-btn {
+  align-self: flex-start;
+}
+
+/* ================= Футер ================= */
+.footer {
+  width: 80%;
+  max-width: 1200px;
+  margin: 14px auto 0;
+  padding: 10px 24px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 0.85em;
+  color: #4a6b82;
+  background-color: #ffffff;
+  border: 1px solid #e0e4ec;
+  border-radius: 12px;
+}
+
+.footer p {
+  margin: 4px 0;
+}
+
+/* ================= Адаптивность: экраны до 900px ================= */
+@media (max-width: 900px) {
+  /* навигация в две строки, по центру, 14px между строками */
+  .navbar {
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .navbar-title {
+    text-align: center;
+  }
+
+  /* галерея в две колонки */
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* карточки в одну колонку */
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* у всех карточек рисунок справа, кнопка прижата к рисунку */
+  .card:nth-child(even) .card-img {
+    order: 0;
+  }
+
+  .card:nth-child(even) .card-btn {
+    align-self: flex-end;
+  }
+}
